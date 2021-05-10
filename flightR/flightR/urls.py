@@ -18,9 +18,9 @@ from django.urls import path,include
 from rest_framework.routers import DefaultRouter
 from fapp import  views
 router=DefaultRouter() # made instance
-router.register('flight',views.Flight)
-router.register('passenger',views.Flight)
-router.register('reservation',views.Flight)
+router.register('flight',views.FlightViewSet)
+router.register('reservation',views.PassengerViewSet)
+router.register('passenger',views.PassengerViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

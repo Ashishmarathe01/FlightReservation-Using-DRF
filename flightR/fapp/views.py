@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import  Flight,Reservation,Passenger
 from .serializers import FlightSerializer,ReservationSerializer,PassengerSerializer
-from rest_framework import viewsets# for minimizing code it will perform all key and non-key operations
+from rest_framework import viewsets  # for minimizing code it will perform all key and non-key operations
 
 
 # Create your views here.
@@ -15,4 +15,4 @@ class ReservationViewSet(viewsets.ModelViewSet):
 
 class PassengerViewSet(viewsets.ModelViewSet):
     queryset = Passenger.objects.all()
-    serializer_class = ReservationSerializer
+    serializer_class = PassengerSerializer

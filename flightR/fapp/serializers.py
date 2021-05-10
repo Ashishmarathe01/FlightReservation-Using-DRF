@@ -3,19 +3,19 @@ from .models import Flight,Reservation,Passenger
 
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
-        model='Flight'
+        model=Flight
         fields='__all__'
 
 
 class ReservationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = 'Reservation'
+        model = Reservation
         fields = '__all__'
 
 
 class PassengerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = 'Passenger'
+        model = Passenger
         fields = '__all__'
 
 
