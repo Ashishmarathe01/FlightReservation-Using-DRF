@@ -18,22 +18,24 @@ def find_flight(request):
     return Response(serializer.data)
 
 # for reservation
+@api_view(['POST'])
 def save_reservation(request):
     flight=Flight.objects.get(id=request.data['flightId'])
 
 
-    passenger=passenger()
+    passenger=Passenger()
     passenger.firstName=request.data['firstName'] 
     passenger.lastName=request.data['lastName'] 
     passenger.middleName=request.data['middleName']
     passenger.email=request.data['email']
     passenger.phone=request.data['phone']
+    passenger.save()
 
-    reservation=reservation()
+    reservation=Reservation()
     reservation.flight=flight
     reservation.passenger=passenger
 
-    reservation.save(reservation)
+    reservation.save()
     return Response(status=status.HTTP_201_CREATED)
 
 class FlightViewSet(viewsets.ModelViewSet): # it will handel all pkey and nonPkey operations
