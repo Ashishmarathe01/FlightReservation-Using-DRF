@@ -18,5 +18,9 @@ class Passenger(models.Model):
     email=models.CharField(max_length=20)
     phone=models.CharField(max_length=13)
 
+class Reservation(models.Model):
+    flight=models.OneToOneField(Flight,on_delete=models.CASCADE)
+    passenger=models.OneToOneField(Passenger,on_delete=models.CASCADE)
+
 
 
