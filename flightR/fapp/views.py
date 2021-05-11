@@ -5,6 +5,8 @@ from rest_framework import viewsets  # for minimizing code it will perform all k
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated # for token authentication 
+
 
 
 # Create your views here.
@@ -41,6 +43,8 @@ def save_reservation(request):
 class FlightViewSet(viewsets.ModelViewSet): # it will handel all pkey and nonPkey operations
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
+    permission_classes=(IsAuthenticated,) # for token security
+    
 
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
